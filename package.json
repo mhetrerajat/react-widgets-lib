@@ -2,12 +2,13 @@
   "name": "react-widgets-lib",
   "version": "0.0.0-development",
   "description": "Provides commonly used HTML elements as React Components",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "commit": "git-cz",
-    "build": "webpack -p -w",
-    "builddev": "webpack -d -w",
+    "build": "webpack -p -w && npm run compile:lib",
+    "builddev": "webpack -d -w && npm run compile:lib",
     "test": "jest",
+    "compile:lib": "babel src --out-dir lib",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
